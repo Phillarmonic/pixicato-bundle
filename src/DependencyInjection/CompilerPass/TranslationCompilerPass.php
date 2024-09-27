@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 class TranslationCompilerPass implements CompilerPassInterface
 {
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         if (!$container->hasDefinition('translator.default')) {
             return;
@@ -22,7 +22,7 @@ class TranslationCompilerPass implements CompilerPassInterface
             foreach ($domains as $domain) {
                 $translator->addMethodCall('addResource', [
                     'yaml',
-                    __DIR__."/../../translations/{$lang}/{$domain}.{$lang}.yaml",
+                    __DIR__."/../../translations/{$domain}.{$lang}.yaml",
                     $lang,
                     $domain
                 ]);
