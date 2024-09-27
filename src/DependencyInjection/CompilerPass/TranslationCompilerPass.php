@@ -16,31 +16,31 @@ class TranslationCompilerPass implements CompilerPassInterface
         $translator = $container->getDefinition('translator.default');
         $translator->addMethodCall('addResource', [
             'yaml',
-            __DIR__.'/../../Resources/translations/validators.en.yaml',
+            __DIR__.'/../../translations/validators.en.yaml',
             'en',
             'validators'
         ]);
         $translator->addMethodCall('addResource', [
             'yaml',
-            __DIR__.'/../../Resources/translations/validators.pt_BR.yaml',
+            __DIR__.'/../../translations/validators.pt_BR.yaml',
             'pt_BR',
             'validators'
         ]);
         $translator->addMethodCall('addResource', [
             'yaml',
-            __DIR__.'/../../Resources/translations/validators.fr.yaml',
+            __DIR__.'/../../translations/validators.fr.yaml',
             'fr',
             'validators'
         ]);
         $translator->addMethodCall('addResource', [
             'yaml',
-            __DIR__.'/../../Resources/translations/validators.de.yaml',
+            __DIR__.'/../../translations/validators.de.yaml',
             'de',
             'validators'
         ]);
         $translator->addMethodCall('addResource', [
             'yaml',
-            __DIR__.'/../../Resources/translations/validators.ja.yaml',
+            __DIR__.'/../../translations/validators.ja.yaml',
             'ja',
             'validators'
         ]);
