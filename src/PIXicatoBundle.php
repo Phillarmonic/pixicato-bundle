@@ -2,6 +2,7 @@
 
 namespace Phillarmonic\PIXicato;
 
+use Phillarmonic\PIXicato\DependencyInjection\CompilerPass\TranslationCompilerPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Phillarmonic\PIXicato\DependencyInjection\PIXicatoExtension;
