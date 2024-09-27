@@ -1,3 +1,4 @@
 valid_pix_key:
   invalid: '値 "{{ value }}" は有効なPIXキーではありません。'
   type_mismatch: 'PIXキー "{{ value }}" は "{{ actual_type }}" 型ですが、"{{ expected_type }}" が期待されていました。'
+Error: 'エラー'

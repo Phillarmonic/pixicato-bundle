@@ -1,3 +1,4 @@
 valid_pix_key:
   invalid: 'O valor "{{ value }}" não é uma chave PIX válida.'
   type_mismatch: 'A chave PIX "{{ value }}" é do tipo "{{ actual_type }}", mas era esperado "{{ expected_type }}".'
+Error: 'Erro'
