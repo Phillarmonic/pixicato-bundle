@@ -14,35 +14,19 @@ class TranslationCompilerPass implements CompilerPassInterface
         }
 
         $translator = $container->getDefinition('translator.default');
-        $translator->addMethodCall('addResource', [
-            'yaml',
-            __DIR__.'/../../translations/validators.en.yaml',
-            'en',
-            'validators'
-        ]);
-        $translator->addMethodCall('addResource', [
-            'yaml',
-            __DIR__.'/../../translations/validators.pt_BR.yaml',
-            'pt_BR',
-            'validators'
-        ]);
-        $translator->addMethodCall('addResource', [
-            'yaml',
-            __DIR__.'/../../translations/validators.fr.yaml',
-            'fr',
-            'validators'
-        ]);
-        $translator->addMethodCall('addResource', [
-            'yaml',
-            __DIR__.'/../../translations/validators.de.yaml',
-            'de',
-            'validators'
-        ]);
-        $translator->addMethodCall('addResource', [
-            'yaml',
-            __DIR__.'/../../translations/validators.ja.yaml',
-            'ja',
-            'validators'
-        ]);
+
+        $languages = ['en', 'pt_BR', 'fr', 'de', 'ja'];
+        $domains = ['validators', 'messages'];
+
+        foreach ($languages as $lang) {
+            foreach ($domains as $domain) {
+                $translator->addMethodCall('addResource', [
+                    'yaml',
+                    __DIR__."/../../translations/{$domain}.{$lang}.yaml",
+                    $lang,
+                    $domain
+                ]);
+            }
+        }
     }
 }

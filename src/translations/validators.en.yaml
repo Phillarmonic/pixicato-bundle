@@ -1,3 +1,11 @@
 valid_pix_key:
   invalid: 'The value "{{ value }}" is not a valid PIX key.'
   type_mismatch: 'The PIX key "{{ value }}" is of type "{{ actual_type }}", but "{{ expected_type }}" was expected.'
+messages:
+  pix_key: 'Pix key'
+  pix_type: 'Pix type'
+  any: 'Any'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'Email'
+  phone: 'Phone'

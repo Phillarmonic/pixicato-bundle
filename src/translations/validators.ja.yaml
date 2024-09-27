@@ -1,0 +1,11 @@
+valid_pix_key:
+  invalid: '値 "{{ value }}" は有効なPIXキーではありません。'
+  type_mismatch: 'PIXキー "{{ value }}" は "{{ actual_type }}" 型ですが、"{{ expected_type }}" が期待されていました。'
+messages:
+  pix_key: 'Pixキー'
+  pix_type: 'Pixタイプ'
+  any: '任意'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'メール'
+  phone: '電話'

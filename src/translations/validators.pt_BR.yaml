@@ -1,3 +1,11 @@
 valid_pix_key:
   invalid: 'O valor "{{ value }}" não é uma chave PIX válida.'
   type_mismatch: 'A chave PIX "{{ value }}" é do tipo "{{ actual_type }}", mas era esperado "{{ expected_type }}".'
+messages:
+  pix_key: 'Chave Pix'
+  pix_type: 'Tipo Pix'
+  any: 'Qualquer'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'E-mail'
+  phone: 'Telefone'
