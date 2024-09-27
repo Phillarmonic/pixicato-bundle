@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class PixKey
 {
     private bool $isValid = false;
-    private ?PixType $type = null;
+    private ?PixType $detectedType = null;
 
     public function __construct(
         private readonly string $value,
@@ -23,17 +23,17 @@ class PixKey
     private function validate(): void
     {
         if ($this->isCPF()) {
-            $this->type = PixType::CPF;
+            $this->detectedType = PixType::CPF;
         } elseif ($this->isCNPJ()) {
-            $this->type = PixType::CNPJ;
+            $this->detectedType = PixType::CNPJ;
         } elseif ($this->isEmail()) {
-            $this->type = PixType::EMAIL;
+            $this->detectedType = PixType::EMAIL;
         } elseif ($this->isPhone()) {
-            $this->type = PixType::PHONE;
+            $this->detectedType = PixType::PHONE;
         }
 
-        $this->isValid = $this->type !== null &&
-            ($this->expectedPixType === PixType::ANY || $this->expectedPixType === $this->type);
+        $this->isValid = $this->detectedType !== null &&
+            ($this->expectedPixType === PixType::ANY || $this->expectedPixType === $this->detectedType);
     }
 
     public function isValid(): bool
@@ -71,7 +71,7 @@ class PixKey
 
     public function getType(): ?PixType
     {
-        return $this->type;
+        return $this->detectedType;
     }
 
     public function getValue(): string

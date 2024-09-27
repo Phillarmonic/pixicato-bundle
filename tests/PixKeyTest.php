@@ -108,21 +108,22 @@ class PixKeyTest extends TestCase
         $this->assertEquals(PixType::CPF, $pixKey->expectedPixType);
     }
 
-    #[DataProvider('pixKeyTypeDetectionProvider')]
-    public function testPixKeyTypeDetection(string $value, PixType $expectedType): void
+    #[DataProvider('anyTypeDetectionProvider')]
+    public function testAnyTypeDetection(string $value, PixType $expectedDetectedType): void
     {
-        $pixKey = new PixKey($value);
-        $this->assertEquals($expectedType, $pixKey->getType());
+        $pixKey = new PixKey($value, PixType::ANY);
         $this->assertTrue($pixKey->isValid());
+        $this->assertEquals($expectedDetectedType, $pixKey->getType());
+        $this->assertEquals(PixType::ANY, $pixKey->expectedPixType);
     }
 
-    public static function pixKeyTypeDetectionProvider(): array
+    public static function anyTypeDetectionProvider(): array
     {
         return [
-            'CPF detection' => ['123.456.789-09', PixType::CPF],
-            'CNPJ detection' => ['12.345.678/0001-95', PixType::CNPJ],
-            'Email detection' => ['test@example.com', PixType::EMAIL],
-            'Phone detection' => ['+5511987654321', PixType::PHONE],
+            'CPF with ANY type' => ['123.456.789-09', PixType::CPF],
+            'CNPJ with ANY type' => ['12.345.678/0001-95', PixType::CNPJ],
+            'Email with ANY type' => ['test@example.com', PixType::EMAIL],
+            'Phone with ANY type' => ['+5511987654321', PixType::PHONE],
         ];
     }
 }
