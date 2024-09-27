@@ -1,0 +1,4 @@
+services:
+  Phillarmonic\PIXicato\Validator\Constraints\ValidPixKeyValidator:
+    tags:
+      - { name: validator.constraint_validator, alias: valid_pix_key }
