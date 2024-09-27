@@ -1,0 +1,8 @@
+messages:
+  pix_key: 'Pixキー'
+  pix_type: 'Pixタイプ'
+  any: '任意'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'メール'
+  phone: '電話'

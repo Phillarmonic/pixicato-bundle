@@ -1,0 +1,8 @@
+messages:
+  pix_key: 'Pix-Schlüssel'
+  pix_type: 'Pix-Typ'
+  any: 'Beliebig'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'E-Mail'
+  phone: 'Telefon'

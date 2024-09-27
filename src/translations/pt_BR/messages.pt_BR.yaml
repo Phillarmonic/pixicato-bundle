@@ -1,0 +1,8 @@
+messages:
+  pix_key: 'Chave Pix'
+  pix_type: 'Tipo Pix'
+  any: 'Qualquer'
+  cpf: 'CPF'
+  cnpj: 'CNPJ'
+  email: 'E-mail'
+  phone: 'Telefone'
