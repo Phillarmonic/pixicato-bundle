@@ -3,7 +3,7 @@
   "description": "A Symfony bundle for validating Brazilian PIX keys.",
   "type": "symfony-bundle",
   "keywords": ["symfony", "pix", "brazil", "cpf", "cnpj","phone","email","validation"],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "autoload": {
     "psr-4": {
