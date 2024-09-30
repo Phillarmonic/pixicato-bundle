@@ -14,14 +14,19 @@ class PixKey
     private ?PixType $detectedType = null;
 
     public function __construct(
-        private readonly string $value,
-        public readonly PixType $expectedPixType = PixType::ANY
+        private readonly ?string $value = null,
+        public readonly PixType  $expectedPixType = PixType::ANY
     ) {
         $this->validate();
+        return $this;
     }
 
     private function validate(): void
     {
+        if ($this->value === null) {
+            $this->isValid = false;
+            return;
+        }
         if ($this->isCPF()) {
             $this->detectedType = PixType::CPF;
         } elseif ($this->isCNPJ()) {

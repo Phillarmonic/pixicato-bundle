@@ -126,4 +126,11 @@ class PixKeyTest extends TestCase
             'Phone with ANY type' => ['+5511987654321', PixType::PHONE],
         ];
     }
+
+    public function testNullValue(): void
+    {
+        $pixKey = new PixKey(null, PixType::ANY);
+        $this->assertFalse($pixKey->isValid());
+//        $this->assertNull($pixKey->getType());
+    }
 }
