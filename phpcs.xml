@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="CustomPSR12">
+    <rule ref="PSR12">
+        <!-- Exclude the line length constraint -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+</ruleset>
