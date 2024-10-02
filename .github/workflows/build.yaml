@@ -34,18 +34,26 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
 
-      # 4. Run PHPUnit tests (without coverage)
+      #4. Static analysis with phpcs
+      - name: Static analysis with phpcs
+        run: |
+          # PSR specifications
+          vendor/bin/phpcs --standard=PSR12 src tests
+          # Slow functions
+          vendor/bin/phpcs --standard=phpcs_custom.xml src tests
+
+      # 5. Run PHPUnit tests (without coverage)
       - name: Run PHPUnit Tests
         run: vendor/bin/phpunit
 
-      # 5. Generate code coverage reports (only on pull requests)
+      # 6. Generate code coverage reports (only on pull requests)
       - name: Generate code coverage
         if: github.event_name == 'pull_request'
         run: |
           mkdir -p coverage
           vendor/bin/phpunit --coverage-clover coverage/clover.xml
 
-      # 6. Coverage Report as Comment (Clover) (only on pull requests)
+      # 7. Coverage Report as Comment (Clover) (only on pull requests)
       - name: Coverage Report as Comment (Clover)
         if: github.event_name == 'pull_request'
         uses: lucassabreu/comment-coverage-clover@main

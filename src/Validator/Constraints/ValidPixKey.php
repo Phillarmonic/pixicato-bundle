@@ -27,7 +27,7 @@ class ValidPixKey extends Constraint
         $this->typeMismatchMessage = $typeMismatchMessage ?? $this->typeMismatchMessage;
         $this->expectedType = $expectedType ?? $this->expectedType;
 
-        if (!in_array($this->expectedType, ['any', 'cpf', 'cnpj', 'email', 'phone'])) {
+        if (!isset(['any' => true, 'cpf' => true, 'cnpj' => true, 'email' => true, 'phone' => true][$this->expectedType])) {
             throw new InvalidOptionsException(
                 "The option 'expectedType' must be one of 'any', 'cpf', 'cnpj', 'email', or 'phone'.",
                 ['expectedType']

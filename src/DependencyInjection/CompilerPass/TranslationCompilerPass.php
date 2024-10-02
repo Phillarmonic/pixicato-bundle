@@ -22,7 +22,7 @@ class TranslationCompilerPass implements CompilerPassInterface
             foreach ($domains as $domain) {
                 $translator->addMethodCall('addResource', [
                     'yaml',
-                    __DIR__."/../../translations/{$lang}/{$domain}.{$lang}.yaml",
+                    __DIR__ . "/../../translations/{$lang}/{$domain}.{$lang}.yaml",
                     $lang,
                     $domain
                 ]);

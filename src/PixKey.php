@@ -15,7 +15,7 @@ class PixKey
 
     public function __construct(
         private readonly ?string $value = null,
-        public readonly PixType  $expectedPixType = PixType::ANY
+        public readonly PixType $expectedPixType = PixType::ANY
     ) {
         $this->validate();
         return $this;

@@ -19,5 +19,4 @@ class PixTypeTest extends TestCase
     {
         $this->assertCount(5, PixType::cases());
     }
-
 }

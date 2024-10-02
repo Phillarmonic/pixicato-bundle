@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruleset name="CustomRules">
+    <description>Custom rules to avoid slow functions and suggest alternatives.</description>
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array">
+                <element key="array_diff" value="Use array_diff_key(), as keys are unique."/>
+                <element key="array_intersect" value="Use array_intersect_key(), as keys are unique."/>
+                <element key="array_udiff" value="Use array_diff_key(), as keys are unique."/>
+                <element key="array_uintersect" value="Use array_intersect_key(), as keys are unique."/>
+                <element key="array_unique" value="Use array_count_values() and array_keys()."/>
+                <element key="uasort" value="Modify array to use non-u sort functions."/>
+                <element key="uksort" value="Modify array to use non-u sort functions."/>
+                <element key="usort" value="Modify array to use non-u sort functions."/>
+                <element key="in_array" value="Refactor code to replace with isset()."/>
+                <element key="preg_replace" value="Use str_replace() for simple replacements."/>
+                <element key="array_search" value="Replace with array_key_exists()."/>
+                <element key="array_shift" value="Process array using array_pop()."/>
+                <element key="array_unshift" value="Process array using array_push()."/>
+                <element key="strstr" value="Use strpos() for simple searches."/>
+                <element key="uniqid" value="Always specify the entropy parameter (2nd parameter)."/>
+                <element key="array_walk" value="Use foreach loop with reference (&amp;)."/>
+                <element key="array_map" value="Use foreach loop with reference (&amp;)."/>
+                <element key="range" value="Use generators to prevent building large arrays in memory."/>
+                <element key="is_null" value="Use strict comparison === null."/>
+                <element key="is_resource" value="Use strict comparison === false."/>
+                <element key="is_bool" value="Use strict comparison === false."/>
+                <element key="intval" value="Cast to (int)."/>
+                <element key="floatval" value="Cast to (float)."/>
+                <element key="strval" value="Cast to (string)."/>
+                <element key="boolval" value="Cast to (bool)."/>
+                <element key="settype" value="Cast to (bool), (string), (int), or (float)."/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>
