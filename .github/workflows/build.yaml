@@ -38,7 +38,7 @@ jobs:
       - name: Static analysis with phpcs
         run: |
           # PSR specifications
-          vendor/bin/phpcs --standard=PSR12 src tests
+          vendor/bin/phpcs --standard=phpcs.xml src tests
           # Slow functions
           vendor/bin/phpcs --standard=phpcs_custom.xml src tests
 
