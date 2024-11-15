@@ -2,6 +2,7 @@
 
 namespace Phillarmonic\PIXicato\Tests\Validator\Constraints;
 
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Phillarmonic\PIXicato\Validator\Constraints\ValidPixKey;
@@ -14,9 +15,12 @@ class ValidPixKeyValidatorTest extends TestCase
     private $context;
     private $validator;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
-        $this->context   = $this->createMock(ExecutionContextInterface::class);
+        $this->context = $this->createMock(ExecutionContextInterface::class);
         $this->validator = new ValidPixKeyValidator();
         $this->validator->initialize($this->context);
     }
@@ -92,6 +96,7 @@ class ValidPixKeyValidatorTest extends TestCase
             ['12.345.678/0001-95', 'cnpj'],
             ['test@example.com', 'email'],
             ['+5511987654321', 'phone'],
+            ['123e4567-e89b-12d3-a456-426655440000', 'random'],
         ];
     }
 
@@ -103,6 +108,7 @@ class ValidPixKeyValidatorTest extends TestCase
             ['invalid.email@'],
             ['123456'],
             ['randomstring'],
+            ['123e4567-e89b-12d3-a456-42665544000g'],
         ];
     }
 
@@ -112,6 +118,8 @@ class ValidPixKeyValidatorTest extends TestCase
             ['123.456.789-09', 'email'],
             ['test@example.com', 'cpf'],
             ['+5511987654321', 'cnpj'],
+            ['123e4567-e89b-12d3-a456-426655440000', 'email'],
+            ['test@example.com', 'random'],
         ];
     }
 }

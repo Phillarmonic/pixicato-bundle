@@ -8,5 +8,6 @@ enum PixType: string
     case CNPJ = 'cnpj';
     case EMAIL = 'email';
     case PHONE = 'phone';
+    case RANDOM = 'random';
     case ANY = 'any';
 }

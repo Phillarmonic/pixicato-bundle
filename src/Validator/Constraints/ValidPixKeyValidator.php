@@ -29,16 +29,21 @@ class ValidPixKeyValidator extends ConstraintValidator
         $pixKey = new PixKey($value, $expectedType);
 
         if (!$pixKey->isValid()) {
-            if ($pixKey->getType() !== null && $pixKey->getType() !== $expectedType) {
-                // The key is valid, but not of the expected type
-                $this->addViolation($constraint, $value, $pixKey->getType()->value, true);
+            if ($pixKey->getType() !== null && $pixKey->getType() !== $expectedType && $expectedType !== PixType::ANY) {
+                // Type mismatch error
+                $this->context->buildViolation($constraint->typeMismatchMessage)
+                              ->setParameter('{{ value }}', $value)
+                              ->setParameter('{{ expected_type }}', $expectedType->value)
+                              ->setParameter('{{ actual_type }}', $pixKey->getType()->value)
+                              ->addViolation();
             } else {
-                // The key is not valid for any type
-                $this->addViolation($constraint, $value, null);
+                // Invalid key error
+                $this->context->buildViolation($constraint->message)
+                              ->setParameter('{{ value }}', $value)
+                              ->addViolation();
             }
         }
     }
-
     private function addViolation(ValidPixKey $constraint, string $value, ?string $actualType, bool $typeMismatch = false): void
     {
         if ($typeMismatch) {

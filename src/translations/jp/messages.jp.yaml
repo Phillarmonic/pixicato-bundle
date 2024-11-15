@@ -6,3 +6,4 @@ messages:
   cnpj: 'CNPJ'
   email: 'メール'
   phone: '電話'
+  random: 'ランダム'

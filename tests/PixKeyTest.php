@@ -54,6 +54,8 @@ class PixKeyTest extends TestCase
             'Valid CNPJ with CNPJ' => ['12.345.678/0001-95', PixType::CNPJ, PixType::CNPJ],
             'Valid Email with Email' => ['test@example.com', PixType::EMAIL, PixType::EMAIL],
             'Valid Phone with Phone' => ['+5511987654321', PixType::PHONE, PixType::PHONE],
+            'Valid Random with ANY' => ['123e4567-e89b-12d3-a456-426655440000', PixType::ANY, PixType::RANDOM],
+            'Valid Random with Random' => ['123e4567-e89b-12d3-a456-426655440000', PixType::RANDOM, PixType::RANDOM],
         ];
     }
 
@@ -64,10 +66,12 @@ class PixKeyTest extends TestCase
             'Invalid CNPJ with ANY' => ['11.111.111/1111-11', PixType::ANY],
             'Invalid Email with ANY' => ['invalid.email@', PixType::ANY],
             'Invalid Phone with ANY' => ['123456', PixType::ANY],
+            'Invalid Random with ANY' => ['123e4567-12d3-a456-42665544000g', PixType::ANY], // Fixed
             'Invalid CPF with CPF' => ['111.111.111-11', PixType::CPF],
             'Invalid CNPJ with CNPJ' => ['11.111.111/1111-11', PixType::CNPJ],
             'Invalid Email with Email' => ['invalid.email@', PixType::EMAIL],
             'Invalid Phone with Phone' => ['123456', PixType::PHONE],
+            'Invalid Random with Random' => ['123e4567-12d3-a456-42665544000g', PixType::RANDOM], // Fixed
         ];
     }
 
@@ -82,6 +86,8 @@ class PixKeyTest extends TestCase
             'Is not Email' => ['123.456.789-09', 'isEmail', false],
             'Is Phone' => ['+5511987654321', 'isPhone', true],
             'Is not Phone' => ['123.456.789-09', 'isPhone', false],
+            'Is Random' => ['123e4567-e89b-12d3-a456-426655440000', 'isRandom', true],
+            'Is not Random' => ['123.456.789-09', 'isRandom', false],
         ];
     }
 
@@ -92,6 +98,9 @@ class PixKeyTest extends TestCase
             'CNPJ with CPF type' => ['12.345.678/0001-95', PixType::CPF],
             'Email with Phone type' => ['test@example.com', PixType::PHONE],
             'Phone with Email type' => ['+5511987654321', PixType::EMAIL],
+            'Random with Email type' => ['123e4567-e89b-12d3-a456-426655440000', PixType::EMAIL],
+            'Email with Random type' => ['test@example.com', PixType::RANDOM],
+
         ];
     }
 
@@ -124,6 +133,7 @@ class PixKeyTest extends TestCase
             'CNPJ with ANY type' => ['12.345.678/0001-95', PixType::CNPJ],
             'Email with ANY type' => ['test@example.com', PixType::EMAIL],
             'Phone with ANY type' => ['+5511987654321', PixType::PHONE],
+            'Random with ANY type' => ['123e4567-e89b-12d3-a456-426655440000', PixType::RANDOM],
         ];
     }
 

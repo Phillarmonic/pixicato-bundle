@@ -13,10 +13,12 @@ class PixTypeTest extends TestCase
         $this->assertEquals('cnpj', PixType::CNPJ->value);
         $this->assertEquals('email', PixType::EMAIL->value);
         $this->assertEquals('phone', PixType::PHONE->value);
+        $this->assertEquals('random', PixType::RANDOM->value);
+        $this->assertEquals('any', PixType::ANY->value);
     }
 
     public function testPixTypeCount(): void
     {
-        $this->assertCount(5, PixType::cases());
+        $this->assertCount(6, PixType::cases());
     }
 }
