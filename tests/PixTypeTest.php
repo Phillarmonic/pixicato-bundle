@@ -17,8 +17,8 @@ class PixTypeTest extends TestCase
         $this->assertEquals('any', PixType::ANY->value);
     }
 
-    public function testPixTypeCount(): void {
+    public function testPixTypeCount(): void
+    {
         $this->assertCount(6, PixType::cases());
     }
-
 }

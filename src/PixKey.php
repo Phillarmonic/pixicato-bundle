@@ -21,7 +21,8 @@ class PixKey
         return $this;
     }
 
-    private function validate(): void {
+    private function validate(): void
+    {
         if ($this->value === null) {
             $this->isValid = false;
             return;
