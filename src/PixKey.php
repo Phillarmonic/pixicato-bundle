@@ -35,6 +35,8 @@ class PixKey
             $this->detectedType = PixType::EMAIL;
         } elseif ($this->isPhone()) {
             $this->detectedType = PixType::PHONE;
+        } elseif ($this->isRandom()) {
+            $this->detectedType = PixType::RANDOM;
         }
 
         $this->isValid = $this->detectedType !== null &&
@@ -73,6 +75,12 @@ class PixKey
             return false;
         }
     }
+
+    public function isRandom(): bool
+    {
+        return (bool) preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/', $this->value);
+    }
+
 
     public function getType(): ?PixType
     {

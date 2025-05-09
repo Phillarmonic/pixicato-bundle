@@ -6,3 +6,4 @@ messages:
   cnpj: 'CNPJ'
   email: 'E-mail'
   phone: 'Téléphone'
+  random: 'Aléatoire'
